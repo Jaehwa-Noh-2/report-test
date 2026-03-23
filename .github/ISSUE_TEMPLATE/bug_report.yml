@@ -1,30 +1,64 @@
-name: Bug Report
-description: File a bug report.
+name: 🐞 버그 리포트
+description: "[L3] 버그가 발생했을 때 생성합니다"
 title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
-
+# type: BUG
 body:
-- type: markdown
-  attributes:
-    value: |
-      Thanks for taking the time to fill out this bug report!
+    -   type: markdown
+        attributes:
+            value: |
+                > 제목에 발생한 오류에 대해 간단하게 입력하세요
 
-- type: input
-  id: contact
-  attributes:
-    label: Contact Details
-    description: How can we get in touch with you if we need more info?
-    placeholder: ex. email@example.com
-  validations:
-    required: false
+    -   type: textarea
+        attributes:
+            label: 설명
+            description: 문제 상황을 설명해주세요.
+            placeholder: "자유롭게 작성"
 
-- type: textarea
-  id: what-happened
-  attributes:
-    label: What happened?
-    description: Also tell us, what did you expect to happen?
-    placeholder: Tell us what you see!
-    value: "A bug happened!"
+    -   type: checkboxes
+        attributes:
+            label: ① 확인 사항
+            options:
+                -   label: "중복된 이슈가 있는지 검색해 봤습니다"
+                    required: true
+                -   label: "여러 번 재현이 가능합니다"
+
+    -   type: textarea
+        validations:
+            required: true
+        attributes:
+            label: ② 환경
+            description: "버그 재현 진행에 필요한 환경"
+            placeholder: |
+                - OS: 1.0.0
+                - App: 3.5.6_rc1_20260309
+                - ACF: ACF-0702000-20260227.zip
+
+    -   type: textarea
+        validations:
+            required: true
+        attributes:
+            label: ③ 재현 방법
+            description: "버그 발생에 가해진 상황"
+            placeholder: |
+                - 메뉴 화면으로 이동
+                - USB 제거
+
+    -   type: textarea
+        validations:
+            required: true
+        attributes:
+            label: ④ 결과
+            description: "앞선 과정들로 인해 발생한 결과"
+            placeholder: |
+                - 앱이 종료되었음
+
+    -   type: textarea
+        attributes:
+            label: ⑤ 추가 정보
+            description: "관련 로그 또는 스크린샷이 있다면 첨부해 주세요"
+
+    -   type: textarea
+        attributes:
+            label: ⑥ 부모 이슈
+            placeholder: "#123"
+
